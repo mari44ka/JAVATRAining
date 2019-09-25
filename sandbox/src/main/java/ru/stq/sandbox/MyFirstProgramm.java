@@ -1,7 +1,8 @@
 package ru.stq.sandbox;
 
-public class MyFirstProgramm{
+public class MyFirstProgramm {
 
-public static void main(String[] args){
-System.out.println("Hello,world!");}
+    public static void main(String[] args) {
+        System.out.println("Hello,world!");
+    }
 }
