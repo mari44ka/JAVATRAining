@@ -10,20 +10,17 @@ import org.openqa.selenium.support.ui.Select;
 
 public class GroupCreationTests {
   private WebDriver driver;
-  private String baseUrl;
-  private boolean acceptNextAlert = true;
-  private StringBuffer verificationErrors = new StringBuffer();
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
+    System.setProperty("webdriver.gecko.driver","/Users/Mari/Downloads/geckodriver");
     driver = new FirefoxDriver();
-    baseUrl = "https://www.katalon.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    driver.get("http://localhost/addressbook/index.php");
+    login();
   }
 
-  @Test
-  public void testUntitledTestCase() throws Exception {
-    driver.get("http://localhost/addressbook/index.php");
+  private void login() {
     driver.findElement(By.name("user")).click();
     driver.findElement(By.name("user")).click();
     driver.findElement(By.name("user")).clear();
@@ -32,7 +29,12 @@ public class GroupCreationTests {
     driver.findElement(By.name("pass")).clear();
     driver.findElement(By.name("pass")).sendKeys("secret");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
-    driver.findElement(By.xpath("//body")).click();
+    //driver.findElement(By.xpath("//body")).click();
+  }
+
+  @Test
+  public void testGroupCreation() throws Exception {
+
     driver.findElement(By.linkText("groups")).click();
     driver.findElement(By.name("new")).click();
     driver.findElement(By.name("group_name")).click();
@@ -52,10 +54,8 @@ public class GroupCreationTests {
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
     driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
+
+
   }
 
   private boolean isElementPresent(By by) {
@@ -76,18 +76,6 @@ public class GroupCreationTests {
     }
   }
 
-  private String closeAlertAndGetItsText() {
-    try {
-      Alert alert = driver.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
+
   }
-}
+
