@@ -33,7 +33,7 @@ public class GroupCreationTests {
 
     goToGroupPage();
     initiateGroupCreation();
-    fillForm();
+    fillForm("testt3", "test1", "test2");
     submitForm();
     returnToGroupPage();
 
@@ -47,16 +47,16 @@ public class GroupCreationTests {
     driver.findElement(By.name("submit")).click();
   }
 
-  private void fillForm() {
+  private void fillForm(String name, String header, String footer) {
     driver.findElement(By.name("group_name")).click();
     driver.findElement(By.name("group_name")).clear();
-    driver.findElement(By.name("group_name")).sendKeys("testt3");
+    driver.findElement(By.name("group_name")).sendKeys(name);
     driver.findElement(By.name("group_header")).click();
     driver.findElement(By.name("group_header")).clear();
-    driver.findElement(By.name("group_header")).sendKeys("test1");
+    driver.findElement(By.name("group_header")).sendKeys(header);
     driver.findElement(By.name("group_footer")).click();
     driver.findElement(By.name("group_footer")).clear();
-    driver.findElement(By.name("group_footer")).sendKeys("test2");
+    driver.findElement(By.name("group_footer")).sendKeys(footer);
   }
 
   private void initiateGroupCreation() {
