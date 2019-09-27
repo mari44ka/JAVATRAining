@@ -35,8 +35,23 @@ public class GroupCreationTests {
   @Test
   public void testGroupCreation() throws Exception {
 
+    goToGroupPage();
+    initiateGroupCreation();
+    fillForm();
+    submitForm();
+    returnToGroupPage();
+    
+  }
+
+  private void returnToGroupPage() {
     driver.findElement(By.linkText("groups")).click();
-    driver.findElement(By.name("new")).click();
+  }
+
+  private void submitForm() {
+    driver.findElement(By.name("submit")).click();
+  }
+
+  private void fillForm() {
     driver.findElement(By.name("group_name")).click();
     driver.findElement(By.name("group_name")).clear();
     driver.findElement(By.name("group_name")).sendKeys("testt3");
@@ -46,9 +61,14 @@ public class GroupCreationTests {
     driver.findElement(By.name("group_footer")).click();
     driver.findElement(By.name("group_footer")).clear();
     driver.findElement(By.name("group_footer")).sendKeys("test2");
-    driver.findElement(By.name("submit")).click();
+  }
+
+  private void initiateGroupCreation() {
+    driver.findElement(By.name("new")).click();
+  }
+
+  private void goToGroupPage() {
     driver.findElement(By.linkText("groups")).click();
-    driver.findElement(By.linkText("Logout")).click();
   }
 
   @AfterClass(alwaysRun = true)
