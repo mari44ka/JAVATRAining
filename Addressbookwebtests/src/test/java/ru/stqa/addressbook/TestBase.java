@@ -61,6 +61,39 @@ public class TestBase {
       driver.findElement(By.linkText("groups")).click();
     }
 
+    protected void submitNewContactForm() {
+      driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]")).click();
+    }
+
+    protected void fillContactform(ContactData contactData) {
+      driver.findElement(By.name("firstname")).clear();
+      driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
+      driver.findElement(By.name("lastname")).click();
+      driver.findElement(By.name("lastname")).clear();
+      driver.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
+      driver.findElement(By.name("home")).click();
+      driver.findElement(By.name("home")).clear();
+      driver.findElement(By.name("home")).sendKeys(contactData.getPhoneNumber());
+      driver.findElement(By.name("company")).click();
+      driver.findElement(By.name("company")).clear();
+      driver.findElement(By.name("company")).sendKeys(contactData.getCompanyName());
+      driver.findElement(By.name("email")).click();
+      driver.findElement(By.name("email")).clear();
+      driver.findElement(By.name("email")).sendKeys(contactData.getEmail());
+    }
+
+    protected void initiateContactCreation() {
+      driver.findElement(By.linkText("add new")).click();
+    }
+
+    protected void deleteGroup() {
+      driver.findElement(By.name("delete")).click();
+    }
+
+    protected void selectGroup() {
+      driver.findElement(By.name("selected[]")).click();
+    }
+
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
       driver.quit();
