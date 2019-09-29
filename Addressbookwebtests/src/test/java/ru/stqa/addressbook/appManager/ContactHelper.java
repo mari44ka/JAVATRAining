@@ -4,37 +4,29 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.stqa.addressbook.model.ContactData;
 
-public class ContactHelper {
+public class ContactHelper extends HelperBase {
 
-    private WebDriver driver;
+
 
     public ContactHelper(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
 
     }
 
     public void submitNewContactForm() {
-      driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]")).click();
+      click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]"));
     }
 
     public void fillContactform(ContactData contactData) {
-      driver.findElement(By.name("firstname")).clear();
-      driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
-      driver.findElement(By.name("lastname")).click();
-      driver.findElement(By.name("lastname")).clear();
-      driver.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
-      driver.findElement(By.name("home")).click();
-      driver.findElement(By.name("home")).clear();
-      driver.findElement(By.name("home")).sendKeys(contactData.getPhoneNumber());
-      driver.findElement(By.name("company")).click();
-      driver.findElement(By.name("company")).clear();
-      driver.findElement(By.name("company")).sendKeys(contactData.getCompanyName());
-      driver.findElement(By.name("email")).click();
-      driver.findElement(By.name("email")).clear();
-      driver.findElement(By.name("email")).sendKeys(contactData.getEmail());
+        type(By.name("firstname"),contactData.getFirstName());
+        type(By.name("lastname"),contactData.getLastName());
+        type(By.name("home"),contactData.getPhoneNumber());
+        type(By.name("company"),contactData.getCompanyName());
+        type(By.name("email"),contactData.getEmail());
+
     }
 
     public void initiateContactCreation() {
-      driver.findElement(By.linkText("add new")).click();
+      click(By.linkText("add new"));
     }
 }
