@@ -3,6 +3,10 @@ package ru.stqa.addressbook.model;
 import org.testng.annotations.Test;
 import ru.stqa.addressbook.TestBase;
 
+
+import org.testng.annotations.Test;
+import ru.stqa.addressbook.TestBase;
+
 public class ContactData {
     private final String firstName;
     private final String lastName;

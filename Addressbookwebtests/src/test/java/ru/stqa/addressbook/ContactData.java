@@ -1,11 +1,4 @@
-package ru.stqa.addressbook.model;
-
-import org.testng.annotations.Test;
-import ru.stqa.addressbook.TestBase;
-
-
-import org.testng.annotations.Test;
-import ru.stqa.addressbook.TestBase;
+package ru.stqa.addressbook;
 
 public class ContactData {
     private final String firstName;
@@ -40,19 +33,5 @@ public class ContactData {
 
     public String getEmail() {
         return email;
-    }
-
-    public static class DeleteGrouptest extends TestBase {
-
-
-      @Test
-      public void testDeleteGroup() throws Exception {
-        app.getNavigationHelper().goToGroupPage();
-        app.getGroupHelper().selectGroup();
-        app.getGroupHelper().deleteGroup();
-        app.getGroupHelper().returnToGroupPage();
-
-      }
-
     }
 }
