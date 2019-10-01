@@ -1,10 +1,15 @@
 package ru.stqa.addressbook;
 
+<<<<<<< HEAD
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 94b780f... Merge remote-tracking branch 'origin/master'
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -53,6 +58,7 @@ public class TestBase {
       driver.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
     }
 
+<<<<<<< HEAD
     protected void initiateGroupCreation() {
       driver.findElement(By.name("new")).click();
     }
@@ -92,6 +98,11 @@ public class TestBase {
 
     protected void selectGroup() {
       driver.findElement(By.name("selected[]")).click();
+=======
+    @BeforeClass(alwaysRun = true)
+    public void setUp() throws Exception {
+        app.init();
+>>>>>>> parent of 94b780f... Merge remote-tracking branch 'origin/master'
     }
 
     @AfterClass(alwaysRun = true)
