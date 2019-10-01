@@ -45,4 +45,6 @@ public class Applicationmanager {
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }
+
+    public SessionHelper sessionHelper(){ return sessionHelper;}
 }
