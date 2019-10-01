@@ -3,6 +3,7 @@ package ru.stqa.addressbook.appManager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import ru.stqa.addressbook.TestBase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,15 +17,16 @@ public class Applicationmanager {
 
 
     public void init() {
-       groupHelper = new GroupHelper(driver);
-       contactHelper = new ContactHelper(driver);
-       navigationHelper = new NavigationHelper(driver);
-       sessionHelper = new SessionHelper(driver);
 
         System.setProperty("webdriver.gecko.driver","/Users/Mari/Downloads/geckodriver");
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get("http://localhost/addressbook/index.php");
+        groupHelper = new GroupHelper(driver);
+        contactHelper = new ContactHelper(driver);
+        navigationHelper = new NavigationHelper(driver);
+        sessionHelper = new SessionHelper(driver);
+
         sessionHelper.login("admin", "secret");
     }
 

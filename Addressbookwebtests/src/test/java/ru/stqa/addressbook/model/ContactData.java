@@ -42,17 +42,7 @@ public class ContactData {
         return email;
     }
 
-    public static class DeleteGrouptest extends TestBase {
 
 
-      @Test
-      public void testDeleteGroup() throws Exception {
-        app.getNavigationHelper().goToGroupPage();
-        app.getGroupHelper().selectGroup();
-        app.getGroupHelper().deleteGroup();
-        app.getGroupHelper().returnToGroupPage();
 
-      }
-
-    }
 }
