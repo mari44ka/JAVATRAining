@@ -3,7 +3,6 @@ package ru.stqa.addressbook.appManager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import ru.stqa.addressbook.TestBase;
 
 import java.util.concurrent.TimeUnit;
 
