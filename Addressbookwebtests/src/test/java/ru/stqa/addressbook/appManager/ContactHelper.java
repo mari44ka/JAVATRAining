@@ -42,6 +42,7 @@ public class ContactHelper extends HelperBase {
         driver.switchTo().alert().accept();
     }
 
+
     public void initContactEdit() {
         click(By.cssSelector("img[alt='Edit']"));
     }
@@ -49,4 +50,5 @@ public class ContactHelper extends HelperBase {
     public void updateContact() {
         click(By.name("update"));
     }
+
 }
